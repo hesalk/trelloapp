@@ -2,6 +2,19 @@
 // let deleteIcons;
 export default {
   cards: [],
+  generateId: function(){
+    let id = Math.floor(Math.random() * 1000000);
+    let cards = this.getCards();
+    if(!cards.length){
+      return id;
+    }
+    for(let card of cards){
+      if(card.id === id){
+        return this.generateId();
+      }
+    }
+    return id;
+  },
   addCard: function(id, listTitle, cardTitle, cardComment){
     let card = {
       id: id,
