@@ -9,10 +9,9 @@
     <link rel="stylesheet" href="temp.css">
   </head>
   <body>
-    <div class="container">
+    <div class="list-container">
       <div class="list">
         <span class="list__title">Backlog</span>
-        <!-- <input class="list__title-field" type="text" name="" value=""> -->
         <button class="list__add-card-btn" type="button" name="button">add card</button>
         <textarea class="list__add-card-textarea" name="name" rows="4" cols="80"></textarea>
       </div>
@@ -30,10 +29,28 @@
         <span class="list__title">Done</span>
         <button class="list__add-card-btn" type="button" name="button">add card</button>
         <textarea class="list__add-card-textarea" name="name" rows="4" cols="80"></textarea>
-        <!-- <div class="list__card">
-          <i class="material-icons list__card__edit-icon">edit</i>
-          <i class="material-icons">delete</i>
-        </div> -->
+      </div>
+      <div class="popup-overlay" style="display: none;">
+        <div class="popup-overlay__popup">
+          <div class="popup__title-wrapper">
+            <div class="popup__icon-wrapper"><i class="material-icons popup__icon">title</i></div>
+            <textarea class="popup__title-textarea" rows="3"></textArea>
+          </div>
+          <div class="popup__exit-wrapper">
+            <div class="exit-wrapper__exit">
+              <i class="material-icons">close</i>
+            </div>
+          </div>
+          <div class="popup__comment-wrapper">
+            <div class="popup__icon-wrapper">
+              <i class="material-icons popup__icon">comment</i>
+            </div>
+            <textarea class="popup__comment-textarea"></textArea>
+          </div>
+          <div class="popup__save-btn-wrapper">
+            <button class="popup__save-btn" type="button" name="button">Save</button>
+          </div>
+        </div>
       </div>
     </div>
   </body>

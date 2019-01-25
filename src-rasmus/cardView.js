@@ -19,5 +19,13 @@ export default {
   removeCard: function(card){
     let list = card.parentNode;
     list.removeChild(card);
+  },
+  renderEdit: function(card){
+    let popupOverlay = document.querySelector('.popup-overlay');
+    let titleTextarea = document.querySelector('.popup__title-textarea');
+    let commentTextarea = document.querySelector('.popup__comment-textarea');
+    titleTextarea.value = card.cardTitle;
+    commentTextarea.value = card.cardComment;
+    popupOverlay.style.display = "block";
   }
 }
