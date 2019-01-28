@@ -52,3 +52,4 @@ document.querySelector('.popup-overlay').addEventListener('click', function(e){
 document.querySelector('.popup-overlay__popup').addEventListener('click', function(e){
   event.stopPropagation();
 })
+console.log('test');
