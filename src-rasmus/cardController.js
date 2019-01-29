@@ -9,19 +9,25 @@ for(let card of addCardButtons){
 }
 
 function addCardFunc(e){
+  let date = moment().format('L - LT');
   let list = e.target.parentNode;
   let title = list.querySelector('.list__title');
   let listTitle = title.innerHTML;
+  let cardWrapper = list.querySelector('.list__card-wrapper');
   let textArea = list.querySelector('.list__add-card-textarea');
   if(!textArea.value){ return; }
   let cardTitle = textArea.value;
   let cardId = cardModel.generateId();
-  cardModel.addCard(cardId, listTitle, cardTitle);
-  cardView.renderCard(cardId, cardTitle, list);
+  cardModel.addCard(cardId, listTitle, cardTitle, date);
+  cardView.renderCard(cardId, cardTitle, cardWrapper);
   textArea.value = '';
-  let editCardButtons = document.querySelectorAll('.list__card__edit-icon');
-  let deleteCardButtons = document.querySelectorAll('.list__card__delete-icon');
 
+  editDeleteEvents();
+}
+
+function editDeleteEvents(){
+  let editCardButtons = document.querySelectorAll('.card__edit-icon');
+  let deleteCardButtons = document.querySelectorAll('.card__delete-icon');
   for(let deleteBtn of deleteCardButtons){
     deleteBtn.addEventListener('click', deleteCardFunc);
   };
@@ -31,25 +37,47 @@ function addCardFunc(e){
 }
 
 function deleteCardFunc(e){
-  let card = e.target.parentNode;
+  let iconWrapper = e.target.parentNode;
+  let card = iconWrapper.parentNode;
   let cardId = card.dataset.id;
   cardModel.removeCard(cardId);
   cardView.removeCard(card);
 }
 
 function editCardFunc(e){
-  let id = e.target.parentNode.dataset.id;
+  let lists = document.querySelectorAll('.list__title');
+  cardModel.updateLists(lists);
+  let listTitles = cardModel.getLists();
+  let iconWrapper = e.target.parentNode;
+  let id = iconWrapper.parentNode.dataset.id;
+  cardModel.savedId = id;
   let card = cardModel.getCard(id);
-  cardView.renderEdit(card)
+  cardView.renderEdit(card, listTitles);
 }
 
-exitPopupButton.addEventListener('click', function(e){
+function closePopup(e){
   document.querySelector('.popup-overlay').style.display = 'none';
-});
-document.querySelector('.popup-overlay').addEventListener('click', function(e){
-  e.target.style.display = 'none';
-})
+}
+exitPopupButton.addEventListener('click', closePopup);
+document.querySelector('.popup-overlay').addEventListener('click', closePopup);
 document.querySelector('.popup-overlay__popup').addEventListener('click', function(e){
   event.stopPropagation();
-})
-console.log('test');
+});
+
+document.querySelector('.popup__save-btn').addEventListener('click', function(e){
+  let id = cardModel.getSavedId();
+  let card = cardModel.getCard(id);
+  let title = document.querySelector('.popup__title-textarea').value;
+  let comment = document.querySelector('.popup__comment-textarea').value;
+  let selector = document.querySelector('.popup__selector');
+  card.cardTitle = title;
+  card.cardComment = comment;
+  if(card.listTitle !== selector.value){
+    cardModel.moveCard(id);
+  }
+  card.listTitle = selector.value;
+  cardView.updateCard(id, title);
+  cardView.renderAllCards(cardModel.getCards());
+  closePopup();
+  editDeleteEvents();
+});

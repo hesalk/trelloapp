@@ -1,5 +1,15 @@
 export default {
   cards: [],
+  lists: [],
+  getLists: function(){
+    return this.lists;
+  },
+  updateLists: function(listElements){
+    this.lists = [];
+    for(let element of listElements){
+      this.lists.push(element.innerHTML);
+    };
+  },
   generateId: function(){
     let id = Math.floor(Math.random() * 1000000);
     let cards = this.getCards();
@@ -10,12 +20,13 @@ export default {
     }
     return id;
   },
-  addCard: function(id, listTitle, cardTitle){
+  addCard: function(id, listTitle, cardTitle, date){
     let card = {
       id: id,
       listTitle: listTitle,
       cardTitle: cardTitle,
       cardComment: '',
+      date: date,
     }
     this.cards.push(card);
   },
@@ -38,5 +49,18 @@ export default {
         cards.splice(i, 1);
       }
     }
-  }
+  },
+  moveCard: function(id){
+    id = Number(id);
+    for(let i = 0; i < this.cards.length; i++){
+      if(this.cards[i].id === id){
+        let card = this.cards.splice(i, 1);
+        this.cards.push(card[0]);
+      }
+    }
+  },
+  savedId: '',
+  getSavedId: function(){
+    return this.savedId;
+  },
 }

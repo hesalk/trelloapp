@@ -12,21 +12,25 @@
     <div class="list-container">
       <div class="list">
         <span class="list__title">Backlog</span>
+        <div class="list__card-wrapper"></div>
         <button class="list__add-card-btn" type="button" name="button">add card</button>
         <textarea class="list__add-card-textarea" name="name" rows="4" cols="80"></textarea>
       </div>
       <div class="list">
         <span class="list__title">In progress</span>
+        <div class="list__card-wrapper"></div>
         <button class="list__add-card-btn" type="button" name="button">add card</button>
         <textarea class="list__add-card-textarea" name="name" rows="4" cols="80"></textarea>
       </div>
       <div class="list">
         <span class="list__title">Testing</span>
+        <div class="list__card-wrapper"></div>
         <button class="list__add-card-btn" type="button" name="button">add card</button>
         <textarea class="list__add-card-textarea" name="name" rows="4" cols="80"></textarea>
       </div>
       <div class="list">
         <span class="list__title">Done</span>
+        <div class="list__card-wrapper"></div>
         <button class="list__add-card-btn" type="button" name="button">add card</button>
         <textarea class="list__add-card-textarea" name="name" rows="4" cols="80"></textarea>
       </div>
@@ -47,7 +51,17 @@
             </div>
             <textarea class="popup__comment-textarea"></textArea>
           </div>
-          <div class="popup__save-btn-wrapper">
+          <div class="popup__selector-wrapper">
+            <div class="popup__icon-wrapper">
+              <i class="material-icons popup__icon">view_column</i>
+            </div>
+            <!-- <div class="popup__selector"> -->
+              <select class="popup__selector" name="">
+              </select>
+            <!-- </div> -->
+          </div>
+          <div class="popup__bottom-wrapper">
+            <span class="popup__date"></span>
             <button class="popup__save-btn" type="button" name="button">Save</button>
           </div>
         </div>
