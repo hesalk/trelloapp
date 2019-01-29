@@ -46,12 +46,12 @@ export default {
   renderEdit: function(card, listTitles){
     let popupOverlay = document.querySelector('.popup-overlay');
     let titleTextarea = document.querySelector('.popup__title-textarea');
-    let commentTextarea = document.querySelector('.popup__comment-textarea');
+    let descriptionTextarea = document.querySelector('.popup__description-textarea');
     let date = document.querySelector('.popup__date');
     let selector = document.querySelector('.popup__selector');
     selector.innerHTML = '';
     titleTextarea.value = card.cardTitle;
-    commentTextarea.value = card.cardComment;
+    descriptionTextarea.value = card.cardDescription;
     for(let title of listTitles){
       let optionElement = document.createElement('option');
       optionElement.innerHTML = title;

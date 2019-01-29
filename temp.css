@@ -65,7 +65,7 @@ body{
   left: 50%;
   transform: translate(-50%, -50%);
   width: 500px;
-  height: 450px;
+  height: 550px;
   background-color: #FAFAFA;
   z-index: 11;
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
@@ -123,13 +123,13 @@ body{
 .exit-wrapper__exit:hover{
   background-color: #EEEEEE;
 }
-.popup__comment-wrapper{
+.popup__description-wrapper{
   display: flex;
   width: 90%;
   height: 30%;
   margin-bottom: 30px;
 }
-.popup__comment-textarea{
+.popup__description-textarea{
   resize: none;
   width: 90%;
   font-size: 20px;

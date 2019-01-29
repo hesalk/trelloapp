@@ -68,10 +68,10 @@ document.querySelector('.popup__save-btn').addEventListener('click', function(e)
   let id = cardModel.getSavedId();
   let card = cardModel.getCard(id);
   let title = document.querySelector('.popup__title-textarea').value;
-  let comment = document.querySelector('.popup__comment-textarea').value;
+  let description = document.querySelector('.popup__description-textarea').value;
   let selector = document.querySelector('.popup__selector');
   card.cardTitle = title;
-  card.cardComment = comment;
+  card.cardDescription = description;
   if(card.listTitle !== selector.value){
     cardModel.moveCard(id);
   }

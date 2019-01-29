@@ -25,7 +25,7 @@ export default {
       id: id,
       listTitle: listTitle,
       cardTitle: cardTitle,
-      cardComment: '',
+      cardDescription: '',
       date: date,
     }
     this.cards.push(card);
