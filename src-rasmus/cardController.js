@@ -4,8 +4,11 @@ import cardView from './cardView.js'
 export function cardFunction(){
 
   let exitPopupButton = document.querySelector('.exit-wrapper__exit');
-
+  let commentContainer = document.querySelector('.popup__comments-container')
+  let commentPopupButton = document.querySelector('.popup__comment-btn');
+  let commentTextarea = document.querySelector('.popup__comment-textarea');
   let addCardButtons = document.querySelectorAll('.list__add-card-btn');
+
   for(let card of addCardButtons){
     card.addEventListener('click', addCardFunc);
   }
@@ -88,18 +91,11 @@ export function cardFunction(){
     cardModel.savedId = id;
     let card = cardModel.getCard(id);
     cardView.renderEdit(card, listTitles);
+    cardView.renderComments(card.comments);
   }
 
   function closePopup(e){
-    document.querySelector('.popup-overlay').style.display = 'none';
-  }
-  exitPopupButton.addEventListener('click', closePopup);
-  document.querySelector('.popup-overlay').addEventListener('click', closePopup);
-  document.querySelector('.popup-overlay__popup').addEventListener('click', function(e){
-    event.stopPropagation();
-  });
-
-  document.querySelector('.popup__save-btn').addEventListener('click', function(e){
+    commentContainer.innerHTML = '';
     let id = cardModel.getSavedId();
     let card = cardModel.getCard(id);
     let title = document.querySelector('.popup__title-textarea').value;
@@ -113,7 +109,23 @@ export function cardFunction(){
     card.listTitle = selector.value;
     cardView.updateCard(id, title);
     cardView.renderAllCards(cardModel.getCards());
-    closePopup();
     editDeleteEvents();
+    document.querySelector('.popup-overlay').style.display = 'none';
+  }
+  exitPopupButton.addEventListener('click', closePopup);
+  document.querySelector('.popup-overlay').addEventListener('click', closePopup);
+  document.querySelector('.popup-overlay__popup').addEventListener('click', function(e){
+    event.stopPropagation();
   });
+
+  function commentFunc(){
+    if(commentTextarea.value){
+      let id = cardModel.getSavedId();
+      let card = cardModel.getCard(id);
+      card.comments.push(commentTextarea.value);
+      cardView.renderComments(card.comments);
+      commentTextarea.value = '';
+    }
+  }
+  commentPopupButton.addEventListener('click', commentFunc);
 }

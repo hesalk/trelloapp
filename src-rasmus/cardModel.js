@@ -27,6 +27,7 @@ export default {
       cardTitle: cardTitle,
       cardDescription: '',
       date: date,
+      comments: [],
     }
     this.cards.push(card);
   },

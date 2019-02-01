@@ -62,7 +62,7 @@ export default {
       selector.appendChild(optionElement);
     }
     date.innerHTML = card.date;
-    popupOverlay.style.display = "block";
+    popupOverlay.style.display = "flex";
   },
   updateCard: function(id, title){
     let allCards = document.querySelectorAll('.list__card');
@@ -71,5 +71,15 @@ export default {
         card.querySelector('.card__title').innerHTML = title;
       }
     }
-  }
+  },
+  renderComments: function(arr){
+    let commentContainer = document.querySelector('.popup__comments-container');
+    commentContainer.innerHTML = '';
+    for(let comment of arr){
+      let li = document.createElement('li');
+      li.classList.add('popup__comment');
+      li.innerHTML = comment;
+      commentContainer.appendChild(li);
+    }
+  },
 }

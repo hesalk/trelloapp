@@ -38,7 +38,7 @@
         <div class="popup-overlay__popup">
           <div class="popup__title-wrapper">
             <div class="popup__icon-wrapper"><i class="material-icons popup__icon">title</i></div>
-            <textarea class="popup__title-textarea" rows="3"></textArea>
+            <textarea class="popup__textarea popup__title-textarea" rows="3"></textArea>
           </div>
           <div class="popup__exit-wrapper">
             <div class="exit-wrapper__exit">
@@ -49,20 +49,26 @@
             <div class="popup__icon-wrapper">
               <i class="material-icons popup__icon">description</i>
             </div>
-            <textarea class="popup__description-textarea"></textArea>
+            <textarea class="popup__textarea popup__description-textarea"></textArea>
           </div>
           <div class="popup__selector-wrapper">
             <div class="popup__icon-wrapper">
               <i class="material-icons popup__icon">view_column</i>
             </div>
-            <!-- <div class="popup__selector"> -->
-              <select class="popup__selector" name="">
-              </select>
-            <!-- </div> -->
+              <select class="popup__selector" name=""></select>
+          </div>
+          <div class="popup__comment-wrapper">
+            <div class="popup__icon-wrapper">
+              <i class="material-icons popup__icon">comment</i>
+            </div>
+            <textarea class="popup__textarea popup__comment-textarea" name="name" rows="3" cols="80"></textarea>
+            <button class="popup__comment-btn" type="button" name="button">comment</button>
+            <ul class="popup__comments-container">
+              <li class="popup__comment">This is a comment</li>
+            </ul>
           </div>
           <div class="popup__bottom-wrapper">
             <span class="popup__date"></span>
-            <button class="popup__save-btn" type="button" name="button">Save</button>
           </div>
         </div>
       </div>
