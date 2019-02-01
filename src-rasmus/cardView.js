@@ -7,6 +7,7 @@ export default {
     let deleteIcon = document.createElement('i');
     card.dataset.id = id;
     card.classList.add('list__card');
+    card.draggable = 'true';
     titleElement.innerHTML = cardTitle;
     titleElement.classList.add('card__title');
     iconWrapper.classList.add('card__icon-wrapper');
