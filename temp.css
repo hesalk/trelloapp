@@ -7,6 +7,8 @@ body{
   flex-flow: row wrap;
 }
 .list{
+  margin-top: 20px;
+  height: 100%;
   width: 20%;
   min-width: 200px;
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
@@ -14,10 +16,12 @@ body{
   padding: 10px;
   box-sizing: border-box;
   border-radius: 5px;
+  user-select: none;
 }
 .list__title-field{
   width: 50%;
   height: 30px;
+  pointer-events: none;
 }
 .list__add-card-btn{
   width: 100%;
@@ -56,6 +60,7 @@ body{
   display: flex;
   justify-content: space-between;
   padding: 5px;
+  background-color: white;
 }
 .popup-overlay{
   position: absolute;
@@ -186,10 +191,12 @@ body{
   cursor: pointer;
 }
 .popup__comment{
-  padding: 5px;
+  padding: 15px;
   background-color: #F5F5F5;
   overflow-wrap: break-word;
   font-size: 20px;
+  border-radius: 5px;
+  margin-bottom: 5px;
 }
 .popup__comment:nth-child(2n+1){
   background-color: #EEEEEE;

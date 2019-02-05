@@ -3,15 +3,19 @@ import cardView from './cardView.js'
 
 export function cardFunction(){
 
+  let addListButton = document.querySelector('.add-list-button');
+
+  addListButton.addEventListener('click', function(e){
+    let addCardButtons = document.querySelectorAll('.list__add-card-btn');
+    for(let card of addCardButtons){
+      card.addEventListener('click', addCardFunc);
+    }
+  })
+
   let exitPopupButton = document.querySelector('.exit-wrapper__exit');
   let commentContainer = document.querySelector('.popup__comments-container')
   let commentPopupButton = document.querySelector('.popup__comment-btn');
   let commentTextarea = document.querySelector('.popup__comment-textarea');
-  let addCardButtons = document.querySelectorAll('.list__add-card-btn');
-
-  for(let card of addCardButtons){
-    card.addEventListener('click', addCardFunc);
-  }
 
   function addCardFunc(e){
     let date = moment().format('DD/MM/YYYY - HH:mm');
@@ -44,10 +48,18 @@ export function cardFunction(){
 
   function dragDropEvents(){
     let dragged;
-
+    let startList;
     document.addEventListener('dragstart', function(e){
       dragged = e.target
-      e.target.style.opacity = 0.5;
+      for(let element of e.path){
+        if(element.className === 'list'){
+          startList = element;
+        }
+      }
+      setTimeout(() => {
+        e.target.style.opacity = 0;
+      },0)
+
     });
     document.addEventListener('dragend', function(e){
       e.target.style.opacity = 1;
@@ -59,6 +71,8 @@ export function cardFunction(){
       e.preventDefault();
       for(let element of e.path){
         if(element.className === 'list'){
+          if(startList === element) return;
+
           let dropzone = element.querySelector('.list__card-wrapper');
           let listTitle = element.querySelector('.list__title');
           dragged.parentNode.removeChild(dragged);
@@ -66,8 +80,7 @@ export function cardFunction(){
           let id = dragged.dataset.id;
           let card = cardModel.getCard(id);
           card.listTitle = listTitle.innerHTML;
-          // cardModel.moveCard(id);
-          console.log(cardModel.getCards());
+          cardModel.moveCard(id);
         }
       }
     })
