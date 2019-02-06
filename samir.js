@@ -1,4 +1,4 @@
-export function listFunc() {  
+export function listFunction() {  
   let main = document.querySelector('main');
   let listContainer = document.createElement('div');
   let addListContainer = document.createElement('div');
