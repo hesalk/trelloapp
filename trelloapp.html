@@ -4,6 +4,7 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Trelloapp</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
   <script type="text/javascript" src="bundle.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.23.0/moment.min.js"></script>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -12,106 +13,43 @@
 </head>
 <body>
   <main>
-    <!-- <div class="list-container">
-    <div class="list">
-    <span class="list__title">Backlog</span>
-    <div class="list__card-wrapper"></div>
-    <button class="list__add-card-btn" type="button" name="button">add card</button>
-    <textarea class="list__add-card-textarea" name="name" rows="4" cols="80"></textarea>
-  </div>
-  <div class="list">
-  <span class="list__title">In progress</span>
-  <div class="list__card-wrapper"></div>
-  <button class="list__add-card-btn" type="button" name="button">add card</button>
-  <textarea class="list__add-card-textarea" name="name" rows="4" cols="80"></textarea>
-</div>
-<div class="list">
-<span class="list__title">Testing</span>
-<div class="list__card-wrapper"></div>
-<button class="list__add-card-btn" type="button" name="button">add card</button>
-<textarea class="list__add-card-textarea" name="name" rows="4" cols="80"></textarea>
-</div>
-<div class="list">
-<span class="list__title">Done</span>
-<div class="list__card-wrapper"></div>
-<button class="list__add-card-btn" type="button" name="button">add card</button>
-<textarea class="list__add-card-textarea" name="name" rows="4" cols="80"></textarea>
-</div>
-<div class="popup-overlay" style="display: none;">
-<div class="popup-overlay__popup">
-<div class="popup__title-wrapper">
-<div class="popup__icon-wrapper"><i class="material-icons popup__icon">title</i></div>
-<textarea class="popup__textarea popup__title-textarea" rows="3"></textArea>
-</div>
-<div class="popup__exit-wrapper">
-<div class="exit-wrapper__exit">
-<i class="material-icons">close</i>
-</div>
-</div>
-<div class="popup__description-wrapper">
-<div class="popup__icon-wrapper">
-<i class="material-icons popup__icon">description</i>
-</div>
-<textarea class="popup__textarea popup__description-textarea"></textArea>
-</div>
-<div class="popup__selector-wrapper">
-<div class="popup__icon-wrapper">
-<i class="material-icons popup__icon">view_column</i>
-</div>
-<select class="popup__selector" name=""></select>
-</div>
-<div class="popup__comment-wrapper">
-<div class="popup__icon-wrapper">
-<i class="material-icons popup__icon">comment</i>
-</div>
-<textarea class="popup__textarea popup__comment-textarea" name="name" rows="3" cols="80"></textarea>
-<button class="popup__comment-btn" type="button" name="button">comment</button>
-<ul class="popup__comments-container">
-</ul>
-</div>
-<div class="popup__bottom-wrapper">
-<span class="popup__date"></span>
-</div>
-</div>
-</div>
-</div> -->
-<div class="popup-overlay" style="display: none;">
-  <div class="popup-overlay__popup">
-    <div class="popup__title-wrapper">
-      <div class="popup__icon-wrapper"><i class="material-icons popup__icon">title</i></div>
-      <textarea class="popup__textarea popup__title-textarea" rows="3"></textArea>
-      </div>
-      <div class="popup__exit-wrapper">
-        <div class="exit-wrapper__exit">
-          <i class="material-icons">close</i>
-        </div>
-      </div>
-      <div class="popup__description-wrapper">
-        <div class="popup__icon-wrapper">
-          <i class="material-icons popup__icon">description</i>
-        </div>
-        <textarea class="popup__textarea popup__description-textarea"></textArea>
-        </div>
-        <div class="popup__selector-wrapper">
-          <div class="popup__icon-wrapper">
-            <i class="material-icons popup__icon">view_column</i>
+    <div class="popup-overlay" style="display: none;">
+      <div class="popup-overlay__popup">
+        <div class="popup__title-wrapper">
+          <div class="popup__icon-wrapper"><i class="material-icons popup__icon">title</i></div>
+          <textarea class="popup__textarea popup__title-textarea" rows="3"></textArea>
           </div>
-          <select class="popup__selector" name=""></select>
-        </div>
-        <div class="popup__comment-wrapper">
-          <div class="popup__icon-wrapper">
-            <i class="material-icons popup__icon">comment</i>
+          <div class="popup__exit-wrapper">
+            <div class="exit-wrapper__exit">
+              <i class="material-icons">close</i>
+            </div>
           </div>
-          <textarea class="popup__textarea popup__comment-textarea" name="name" rows="3" cols="80"></textarea>
-          <button class="popup__comment-btn" type="button" name="button">comment</button>
-          <ul class="popup__comments-container">
-          </ul>
+          <div class="popup__description-wrapper">
+            <div class="popup__icon-wrapper">
+              <i class="material-icons popup__icon">description</i>
+            </div>
+            <textarea class="popup__textarea popup__description-textarea"></textArea>
+            </div>
+            <div class="popup__selector-wrapper">
+              <div class="popup__icon-wrapper">
+                <i class="material-icons popup__icon">view_column</i>
+              </div>
+              <select class="popup__selector" name=""></select>
+            </div>
+            <div class="popup__comment-wrapper">
+              <div class="popup__icon-wrapper">
+                <i class="material-icons popup__icon">comment</i>
+              </div>
+              <textarea class="popup__textarea popup__comment-textarea" name="name" rows="3" cols="80"></textarea>
+              <button class="popup__comment-btn" type="button" name="button">comment</button>
+              <ul class="popup__comments-container">
+              </ul>
+            </div>
+            <div class="popup__bottom-wrapper">
+              <span class="popup__date"></span>
+            </div>
+          </div>
         </div>
-        <div class="popup__bottom-wrapper">
-          <span class="popup__date"></span>
-        </div>
-      </div>
-    </div>
-  </main>
-</body>
-</html>
+      </main>
+    </body>
+    </html>

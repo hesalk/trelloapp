@@ -1,4 +1,4 @@
-export function listFunction() {  
+export function listFunction() {
   let main = document.querySelector('main');
   let listContainer = document.createElement('div');
   let addListContainer = document.createElement('div');
@@ -8,15 +8,17 @@ export function listFunction() {
   listContainer.classList.add('list-container');
   addListContainer.classList.add('add-list-container');
 
-  main.appendChild(listContainer);
+
   main.appendChild(addListContainer);
+  main.appendChild(listContainer);
 
   addListContainer.appendChild(inputList);
   addListContainer.appendChild(button);
 
-  button.textContent = 'Add list!';
+  button.textContent = '+';
   button.classList.add('add-list-button');
   inputList.classList.add('add-text');
+  inputList.placeholder = 'Add list'
 
   button.addEventListener('click', function(e){
     if(inputList.value){
@@ -37,11 +39,11 @@ export function listFunction() {
     list.appendChild(listWrap);
     let addCardButton = document.createElement('button');
     addCardButton.classList.add('list__add-card-btn');
-    list.appendChild(addCardButton);
-    addCardButton.textContent ='Add card!'
+    addCardButton.textContent ='Add card'
     let cardTextArea = document.createElement('textarea');
     cardTextArea.classList.add('list__add-card-textarea');
     list.appendChild(cardTextArea);
+    list.appendChild(addCardButton);
     listArray.push(titleSpan.innerHTML);
   }
 }
