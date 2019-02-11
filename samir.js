@@ -44,6 +44,10 @@ export function listFunction() {
     cardTextArea.classList.add('list__add-card-textarea');
     list.appendChild(cardTextArea);
     list.appendChild(addCardButton);
-    listArray.push(titleSpan.innerHTML);
+    let obj = {
+      listTitle: titleSpan.innerHTML,
+      boardId: '',
+    }
+    listArray.push(obj);
   }
 }
