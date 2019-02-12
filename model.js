@@ -3,7 +3,7 @@ export default {
     getbord: function(){
         return this._bords
     },
-    addbord: function(bord){
+    addbord: function(id){
         let bord = {
             id: id,
         }
