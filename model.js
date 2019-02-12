@@ -1,13 +1,23 @@
 export default {
     _bords: [],
-    main: function(){
-        document.createElement("main");
+    getbord: function(){
+        return this._bords
     },
-    addbordbtn: function() {
-        let newbtn = document.createElement("button");
-
+    addbord: function(bord){
+        _bords.push(bord)
     },
-    addbords: function() {
-        let bord = document.createElement("div");
+    newbord: {
+        bordid: 0,
+        bordname: "",
+    },
+    generateId: function(){
+        let id = Math.floor(Math.random() * 1000000);
+        let bords = this.getbord();
+        for(let card of bords){
+          if(card.id === id){
+            return this.generateId();
+          }
+        }
+        return id;
     },
 }

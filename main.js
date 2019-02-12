@@ -1,3 +1,3 @@
-import model from './model';
+import contorler from './controler';
 
-model.main();
+contorler.init();

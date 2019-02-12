@@ -1,20 +1,27 @@
 (function () {
     'use strict';
 
-    var model = {
-        _bords: [],
-        main: function(){
-            document.createElement("main");
+    var view = {
+        addbtn: function(element, newclass, onClick,btntxt){
+            let button = document.createElement("button");
+            element.appendChild(button);
+            button.className = newclass;
+            button.innerHTML = btntxt;
+            button.addEventListener('click', onClick);
         },
-        addbordbtn: function() {
-            let newbtn = document.createElement("button");
-
-        },
-        addbords: function() {
-            let bord = document.createElement("div");
-        },
+        createbord: function(element){
+            let div = document.createElement("div");
+            div.className = "bord";
+            element.appendChild(div);
+        }
     };
 
-    model.main();
+    function init (){
+        let main = document.querySelector("main");
+        view.addbtn(main,"bord-addbutton", function(){view.createbord(main);},"Creat bord");
+
+    }
+
+    init();
 
 }());
