@@ -34,8 +34,15 @@
             button.innerHTML = btntxt;
             button.addEventListener('click', onClick);
         },
-        createbord: function(element,id){
+        addinput: function(element){
+            let input = document.createElement("input");
+            element.appendChild(input);
+        },
+        createbord: function(element,id,inputtxt){
             let div = document.createElement("div");
+            let span = document.createElement("span");
+            div.appendChild(span);
+            span.textContent = inputtxt;
             div.className = "bord";
             div.dataset.id = id;//Fixa data set till main element when i open it 
             element.appendChild(div);
@@ -44,6 +51,7 @@
 
     function init (){
         let main = document.querySelector("main");
+        view.addinput(main);
         view.addbtn(main,"bord-addbutton", function(){
             let id = model.generateId();
             view.createbord(main,id);

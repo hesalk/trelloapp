@@ -8,6 +8,7 @@ export default {
     },
     addinput: function(element){
         let input = document.createElement("input");
+        input.className = "maininput"
         element.appendChild(input);
     },
     createbord: function(element,id,inputtxt){
