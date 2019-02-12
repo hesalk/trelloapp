@@ -3,11 +3,13 @@ export default {
     getbord: function(){
         return this._bords
     },
-    addbord: function(id){
+    addbord: function(id,bordtitle){
         let bord = {
+            bordtitle: bordtitle,
             id: id,
         }
-        _bords.push(bord)
+        this._bords.push(bord)
+        console.log(this._bords)
     },
     generateId: function(){
         let id = Math.floor(Math.random() * 1000000);
