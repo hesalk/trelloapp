@@ -9,7 +9,7 @@ export default {
     createbord: function(element){
         let div = document.createElement("div");
         div.className = "bord";
-        div.dataset.id = id;
+        div.dataset.id = id;//Fixa data set till main element when i open it 
         element.appendChild(div);
     }
 }
