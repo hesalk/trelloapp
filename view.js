@@ -6,9 +6,10 @@ export default {
         button.innerHTML = btntxt;
         button.addEventListener('click', onClick);
     },
-    createbord: function(element){
+    createbord: function(element,id){
         let div = document.createElement("div");
         div.className = "bord";
+        div.dataset.id = id;
         element.appendChild(div);
     }
 }
