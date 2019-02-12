@@ -299,6 +299,9 @@ body{
   user-select: none;
   font-size: 40px;
 }
+.bord > span {
+  width: 10px;
+}
 .maininput{
   font-size: 30px;
   position: relative;
