@@ -1,3 +1,3 @@
-import contorler from './controler';
+import {init} from './controler';
 
-contorler.init();
+init();

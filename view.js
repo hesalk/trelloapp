@@ -1,10 +1,14 @@
 export default {
-    init: function(element, bord, onClick){
-        let bord = document.createElement("div");
-
+    addbtn: function(element, newclass, onClick,btntxt){
+        let button = document.createElement("button");
+        element.appendChild(button);
+        button.className = newclass;
+        button.innerHTML = btntxt;
+        button.addEventListener('click', onClick);
     },
-    creatbtn: function(){
-        document.createElement("button");
-        
+    createbord: function(element){
+        let div = document.createElement("div");
+        div.className = "bord";
+        element.appendChild(div);
     }
 }
