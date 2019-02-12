@@ -284,4 +284,42 @@ body{
   height: 100px;
   background-color: red;
   margin: 10px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  height: 100%;
+  width: 15%;
+  min-width: 200px;
+  background: #00838F;
+  margin-right: 30px;
+  padding: 10px;
+  box-sizing: border-box;
+  border-radius: 3px;
+  user-select: none;
+  font-size: 40px;
+}
+.maininput{
+  font-size: 30px;
+  position: relative;
+  top: 14px;
+  user-select: none;
+  font-size: 2rem;
+  padding: 5px 40px 5px 10px;
+  border: none;
+  border-radius: 20px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  color: #757575;
+}
+.bord-addbutton{
+  width: 94px;
+  height: 94px;
+  font-size: 2rem;
+  border-radius: 50%;
+  padding: 5px 10px 5px 10px;
+  border: none;
+  background: #6002ee;
+  margin: 20px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  cursor: pointer;
+  color: #ffffff;
 }
