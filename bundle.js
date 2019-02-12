@@ -492,6 +492,7 @@
       let onbackclick = function(){//5
           view.clearmain(main);
           init (listFunc, cardFunc);
+          main.dataset.id = "";
           renderallbordsbtn();
   /*         console.log("lol");
           view.clearmain(main);
@@ -535,7 +536,6 @@
           view.renderallbords(model.getbord(),main,onexistBordclick);
       };
       view.addbtn(main,"bord-addbutton",onbtnclick,"Creat bord");//the statrt
-      view.addbtn(main,"",renderallbordsbtn,"renderallbords");
       model.generateId();
   }
 
