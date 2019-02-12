@@ -6,12 +6,24 @@ export function init (){
     view.addinput(main)
     let input = document.querySelector(".maininput")
     console.log(input);
-    view.addbtn(main,"bord-addbutton", function(){
+    let onbtnclick = function(){
         let id = model.generateId();
-        let bordtitle = input.value
-        view.createbord(main,id,bordtitle);
+        let bordtitle = input.value;
+        let onBordClick = function(){
+            main.dataset.id = id;
+            console.log("test");
+        }
+        view.createbord(main,id,bordtitle,onBordClick);
         model.addbord(id,bordtitle);
         view.clearinput(input);
-    },"Creat bord")
+    };
+    let onexistBordclick = function(e){
+        main.dataset.id = e.target.dataset.id;
+    }
+    let renderallbordsbtn = function(){
+        view.renderallbords(model.getbord(),main,onexistBordclick)
+    }
+    view.addbtn(main,"bord-addbutton",onbtnclick,"Creat bord")
+    view.addbtn(main,"",renderallbordsbtn,"renderallbords")
     model.generateId();
 }

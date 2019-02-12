@@ -14,7 +14,10 @@ export default {
     clearinput: function(input){
         input.value = ""
     },
-    createbord: function(element,id,inputtxt){
+    clearmain: function(element){
+        element.innerHTML = ""
+    },
+    createbord: function(element,id,inputtxt,onBordClick){
         let div = document.createElement("div");
         let span = document.createElement("span");
         div.appendChild(span);
@@ -22,6 +25,22 @@ export default {
         div.className = "bord";
         div.dataset.id = id;//Fixa data set till main element when i open it 
         element.appendChild(div);
+<<<<<<< HEAD
         
+=======
+        div.addEventListener('click', onBordClick)
+    },
+    renderallbords: function(bords,domEl,onBordClick){
+        bords.forEach(element => {
+            let div = document.createElement("div");
+            let span = document.createElement("span");
+            div.className = "bord";
+            div.appendChild(span);
+            div.dataset.id = element.id;
+            span.textContent = element.bordtitle;
+            domEl.appendChild(div);
+            div.addEventListener('click', onBordClick);
+        });
+>>>>>>> hesham
     }
 }
