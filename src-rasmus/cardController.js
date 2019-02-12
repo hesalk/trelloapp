@@ -2,15 +2,30 @@ import cardModel from './cardModel.js';
 import cardView from './cardView.js'
 
 export function cardFunction(){
-  console.log(cardModel.getCards());
   let addListButton = document.querySelector('.add-list-button');
+  let addCardButtons = document.querySelectorAll('.list__add-card-btn');
+  let editCardButtons = document.querySelectorAll('.card__edit-icon');
+  let deleteCardButtons = document.querySelectorAll('.card__delete-icon');
 
-  addListButton.addEventListener('click', function(e){
-    let addCardButtons = document.querySelectorAll('.list__add-card-btn');
-    for(let card of addCardButtons){
-      card.addEventListener('click', addCardFunc);
+  function init(){
+    cardView.renderAllCards(cardModel.getCards());
+    editCardButtons = document.querySelectorAll('.card__edit-icon');
+    deleteCardButtons = document.querySelectorAll('.card__delete-icon');
+  }
+
+  init();
+  callCardFunc();
+  editDeleteEvents();
+
+  addListButton.addEventListener('click', callCardFunc)
+
+  function callCardFunc(){
+    addCardButtons = document.querySelectorAll('.list__add-card-btn');
+    for(let cardButton of addCardButtons){
+      console.log(cardButton);
+      cardButton.addEventListener('click', addCardFunc);
     }
-  })
+  }
 
   let exitPopupButton = document.querySelector('.exit-wrapper__exit');
   let commentContainer = document.querySelector('.popup__comments-container')
@@ -36,8 +51,8 @@ export function cardFunction(){
   }
 
   function editDeleteEvents(){
-    let editCardButtons = document.querySelectorAll('.card__edit-icon');
-    let deleteCardButtons = document.querySelectorAll('.card__delete-icon');
+    editCardButtons = document.querySelectorAll('.card__edit-icon');
+    deleteCardButtons = document.querySelectorAll('.card__delete-icon');
     for(let deleteBtn of deleteCardButtons){
       deleteBtn.addEventListener('click', deleteCardFunc);
     };

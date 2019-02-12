@@ -1,5 +1,5 @@
-var listArray = {
-
+let listArray = {
+  lists: [],
 }
 
 export function listFunction() {
@@ -8,7 +8,6 @@ export function listFunction() {
   let addListContainer = null;
   let inputList = null;
   let button = null;
-  let listArray = [];
 
   renderAddListButton();
   renderAllLists();
@@ -65,32 +64,34 @@ export function listFunction() {
       listTitle: titleSpan.innerHTML,
       boardId: main.dataset.boardid, // change
     }
-    listArray.push(obj);
-    console.log(listArray);
+    listArray.lists.push(obj);
+    console.log(listArray.lists);
   }
 
   function renderAllLists(){
-    console.log(listArray);
-    for(let list of listArray){
-      console.log(list);
+    console.log(listArray.lists);
+    for(let list of listArray.lists){
+
       if(list.boardId === main.dataset.boardid){
-        let list = document.createElement('div');
-        list.classList.add('list')
+        let listElement = document.createElement('div');
+        listElement.classList.add('list')
         let titleSpan = document.createElement('span');
-        titleSpan.innerHTML = inputList.value;
+        console.log(list);
+        console.log(list.listTitle);
+        titleSpan.innerHTML = list.listTitle;
         titleSpan.classList.add('list__title');
-        listContainer.appendChild(list);
-        list.appendChild(titleSpan);
+        listContainer.appendChild(listElement);
+        listElement.appendChild(titleSpan);
         let listWrap = document.createElement('div');
         listWrap.classList.add('list__card-wrapper');
-        list.appendChild(listWrap);
+        listElement.appendChild(listWrap);
         let addCardButton = document.createElement('button');
         addCardButton.classList.add('list__add-card-btn');
         addCardButton.textContent ='Add card'
         let cardTextArea = document.createElement('textarea');
         cardTextArea.classList.add('list__add-card-textarea');
-        list.appendChild(cardTextArea);
-        list.appendChild(addCardButton);
+        listElement.appendChild(cardTextArea);
+        listElement.appendChild(addCardButton);
       }
     }
   }
