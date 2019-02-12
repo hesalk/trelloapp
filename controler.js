@@ -8,6 +8,7 @@ export function init (listFunc, cardFunc){
     console.log(input);
     let onbackclick = function(){//5
         view.clearmain(main);
+        main.dataset.id = ""
         init (listFunc, cardFunc);  
         renderallbordsbtn();      
 /*         console.log("lol");
@@ -55,6 +56,5 @@ export function init (listFunc, cardFunc){
         view.renderallbords(model.getbord(),main,onexistBordclick)
     }
     view.addbtn(main,"bord-addbutton",onbtnclick,"Creat bord");//the statrt
-    view.addbtn(main,"",renderallbordsbtn,"renderallbords")
     model.generateId();
 }
