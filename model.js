@@ -19,6 +19,7 @@ export default {
             return this.generateId();
           }
         }
+        console.log(id)
         return id;
     },
 }
