@@ -489,35 +489,51 @@
       view.addinput(main,"Write bord name");
       let input = document.querySelector(".maininput");
       console.log(input);
-      let onbtnclick = function(){
+      let onbackclick = function(){//5
+          view.clearmain(main);
+          init (listFunc, cardFunc);  
+          renderallbordsbtn();      
+  /*         console.log("lol");
+          view.clearmain(main);
+          view.addinput(main,"Write bord name");
+          view.addbtn(main,"bord-addbutton",onnewbtnclick,"Creat bord")
+          renderallbordsbtn(); */
+      };
+      let onbtnclick = function(){//2nd
           let id = model.generateId();
           let bordtitle = input.value;
-          let onBordClick = function(){
+          let onBordClick = function(){//4th
               main.dataset.id = id;
               console.log("test");
               view.clearmain(main);
               listFunc();
               cardFunc();
-              let backButton = document.createElement('button');
+              view.addbtn(main,"backbtn",onbackclick,"backtomain");
+
+  /*             let backButton = document.createElement('button');
               backButton.textContent = 'Back to Boards';
               main.appendChild(backButton);
               backButton.addEventListener('click', function(e){
                 view.clearmain(main);
                 // Rendera ut boards
-              });
+              }) */
           };
-          view.createbord(main,id,bordtitle,onBordClick);
+          view.createbord(main,id,bordtitle,onBordClick);//3rd
           model.addbord(id,bordtitle);
           view.clearinput(input);
       };
       let onexistBordclick = function(e){
           main.dataset.id = e.target.dataset.id;
-
+          console.log("anotherlo");
+          view.clearmain(main);
+              listFunc();
+              cardFunc();
+              view.addbtn(main,"backbtn",onbackclick,"backtomain");
       };
       let renderallbordsbtn = function(){
           view.renderallbords(model.getbord(),main,onexistBordclick);
       };
-      view.addbtn(main,"bord-addbutton",onbtnclick,"Creat bord");
+      view.addbtn(main,"bord-addbutton",onbtnclick,"Creat bord");//the statrt
       view.addbtn(main,"",renderallbordsbtn,"renderallbords");
       model.generateId();
   }
