@@ -32,7 +32,7 @@ export default {
       wrapper.innerHTML = '';
     }
     for(let card of cards){
-      if(card.boardId === main.dataset.boardid){
+      if(card.boardId === main.dataset.id){
         for(let title of listTitles){
           if(title.innerHTML === card.listTitle){
             let list = title.parentNode;

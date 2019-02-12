@@ -8,9 +8,14 @@ export function init (listFunc, cardFunc){
     console.log(input);
     let onbackclick = function(){//5
         view.clearmain(main);
+<<<<<<< HEAD
         main.dataset.id = ""
         init (listFunc, cardFunc);  
         renderallbordsbtn();      
+=======
+        init (listFunc, cardFunc);
+        renderallbordsbtn();
+>>>>>>> 22ff5c17e2970f83416f3448455f973bf1f6991e
 /*         console.log("lol");
         view.clearmain(main);
         view.addinput(main,"Write bord name");
@@ -22,6 +27,7 @@ export function init (listFunc, cardFunc){
         renderallbordsbtn();
     }
     let onbtnclick = function(){//2nd
+      if(!input.value) return;
         let id = model.generateId();
         let bordtitle = input.value;
         let onBordClick = function(){//4th
