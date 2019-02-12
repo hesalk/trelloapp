@@ -87,7 +87,6 @@
             view.clearinput(input);
         };
         let onexistBordclick = function(e){
-            console.log(e.target);
             main.dataset.id = e.target.dataset.id;
         };
         let renderallbordsbtn = function(){
