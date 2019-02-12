@@ -55,6 +55,18 @@
             div.dataset.id = id;//Fixa data set till main element when i open it 
             element.appendChild(div);
             div.addEventListener('click', onBordClick);
+        },
+        renderallbords: function(bords,domEl,onBordClick){
+            bords.forEach(element => {
+                let div = document.createElement("div");
+                let span = document.createElement("span");
+                div.className = "bord";
+                div.appendChild(span);
+                div.dataset.id = element.id;
+                span.textContent = element.bordtitle;
+                domEl.appendChild(div);
+                div.addEventListener('click', onBordClick);
+            });
         }
     };
 
@@ -63,16 +75,26 @@
         view.addinput(main);
         let input = document.querySelector(".maininput");
         console.log(input);
-        view.addbtn(main,"bord-addbutton", function(){
+        let onbtnclick = function(){
             let id = model.generateId();
             let bordtitle = input.value;
             let onBordClick = function(){
+                main.dataset.id = id;
                 console.log("test");
             };
             view.createbord(main,id,bordtitle,onBordClick);
             model.addbord(id,bordtitle);
             view.clearinput(input);
-        },"Creat bord");
+        };
+        let onexistBordclick = function(e){
+            console.log(e.target);
+            main.dataset.id = e.target.dataset.id;
+        };
+        let renderallbordsbtn = function(){
+            view.renderallbords(model.getbord(),main,onexistBordclick);
+        };
+        view.addbtn(main,"bord-addbutton",onbtnclick,"Creat bord");
+        view.addbtn(main,"",renderallbordsbtn,"renderallbords");
         model.generateId();
     }
 
