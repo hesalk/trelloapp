@@ -1,6 +1,281 @@
-.bord{
-    width: 200px;
-    height: 100px;
-    background-color: red;
-    margin: 10px;
+*{
+  font-size: 62.5%;
+  font-family: 'Roboto', sans-serif;
+}
+body{
+  margin: 0;
+  padding: 0;
+}
+
+/* ==================== add list container ==================== */
+.add-list-container{
+  display: flex;
+  align-items: flex-end;
+  width: 100%;
+  height: 100px;
+  background: #00838F;
+  padding: 15px;
+  box-sizing: border-box;
+}
+.add-text{
+  user-select: none;
+  font-size: 2rem;
+  padding: 5px 40px 5px 10px;
+  border: none;
+  border-radius: 20px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  color: #757575;
+}
+.add-list-button{
+  width: 34px;
+  height: 34px;
+  margin-left: -35px;
+  font-size: 2rem;
+  border-radius: 50%;
+  padding: 5px 10px 5px 10px;
+  border: none;
+  background: #FFFFFF;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  cursor: pointer;
+  color: #006064
+}
+
+/* ==================== List container ==================== */
+.list-container{
+  display: flex;
+  flex-flow: row wrap;
+  padding: 10px;
+}
+.list{
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  height: 100%;
+  width: 15%;
+  min-width: 200px;
+  background: #00838F;
+  margin-right: 30px;
+  padding: 10px;
+  box-sizing: border-box;
+  border-radius: 3px;
+  user-select: none;
+}
+.list__title{
+  display: block;
+  overflow-wrap: break-word;
+  margin-bottom: 10px;
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #FFFFFF;
+}
+.list__add-card-btn{
+  width: 100%;
+  font-size: 1.6rem;
+  border: none;
+  background: #FFFFFF;
+  color: #00838F;
+  border-radius: 0 0 3px 3px;
+  padding: 5px;
+  margin-top: 2px;
+  cursor: pointer;
+}
+.list__add-card-textarea{
+  width: 100%;
+  font-size: 1.6rem;
+  color: #616161;
+  resize: none;
+  padding: 5px;
+  margin-top: 25px;
+  box-sizing: border-box;
+  border: none;
+}
+.list__card{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  margin-bottom: 10px;
+}
+
+/* ==================== Card styling ==================== */
+.card__title{
+  width: 100%;
+  font-size: 1.6rem;
+  overflow-wrap: break-word;
+  background: #FFFFFF;
+  color: #00838F;
+  padding: 5px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+.card__icon-wrapper{
+  display: flex;
+  justify-content: flex-end;
+  padding: 5px;
+  background-color: white;
+}
+.card__edit-icon{
+  color: #00838F;
+  cursor: pointer;
+  margin-right: 20px;
+  transform: scale(1);
+  transition: transform 0.1s linear;
+}
+.card__edit-icon:hover{
+  transform: scale(1.2);
+}
+.card__delete-icon{
+  color: #00838F;
+  cursor: pointer;
+  transform: scale(1);
+  transition: transform 0.1s linear;
+}
+.card__delete-icon:hover{
+  transform: scale(1.2);
+}
+
+/* ==================== Popup styling ==================== */
+.popup-overlay{
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  min-height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 10;
+}
+.popup-overlay__popup{
+  display: flex;
+  flex-flow: row wrap;
+  align-content: flex-start;
+  width: 600px;
+  height: 0%;
+  background-color: #FAFAFA;
+  z-index: 11;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  padding: 15px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  box-sizing: border-box;
+}
+.popup__title-wrapper{
+  width: 90%;
+  display: flex;
+  margin-bottom: 30px;
+}
+.popup__icon-wrapper{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30px;
+  width: 30px;
+  background-color: #E0E0E0;
+  border-radius: 50%;
+  margin-right: 10px;
+  align-self: flex-start;
+}
+.popup__icon{
+  color: #9E9E9E;
+  font-size: 20px;
+  pointer-events: none;
+}
+.popup__exit-wrapper{
+  display: flex;
+  justify-content: flex-end;
+  height: 30px;
+  width: 10%;
+}
+.exit-wrapper__exit{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.exit-wrapper__exit:hover{
+  background-color: #EEEEEE;
+}
+.popup__description-wrapper{
+  display: flex;
+  width: 90%;
+  margin-bottom: 30px;
+  height: 100px;
+}
+.popup__selector-wrapper{
+  display: flex;
+  width: 90%;
+  margin-bottom: 30px;
+  height: 40px;
+}
+.popup__selector{
+  width: 50%;
+  font-size: 2rem;
+  border-color: #EEEEEE;
+  color: #616161;
+  border-radius: 5px;
+  height: 40px;
+}
+.popup__textarea{
+  resize: none;
+  width: 90%;
+  font-size: 2rem;
+  border: 1px solid #EEEEEE;
+  padding: 4px;
+  box-sizing: border-box;
+  background-color: #FFFFFF;
+  color: #616161;
+  border-radius: 5px;
+}
+.popup__comment-textarea{
+  border-radius: 5px 5px 5px 0;
+}
+.popup__comment-wrapper{
+  display: flex;
+  flex-flow: row wrap;
+  width: 90%;
+  margin-bottom: 30px;
+}
+.popup__comments-container{
+  list-style: none;
+  width: 90%;
+  margin: 20px 0 0 40px;
+  padding: 0;
+}
+.popup__comment-btn{
+  margin-left: 40px;
+  font-size: 1.6rem;
+  border: none;
+  background-color: #00838F;
+  border-radius: 0 0 5px 5px;
+  padding: 10px 20px 10px 20px;
+  color: #FFFFFF;
+  cursor: pointer;
+}
+.popup__comment{
+  padding: 15px;
+  background-color: #F5F5F5;
+  color: #616161;
+  overflow-wrap: break-word;
+  font-size: 20px;
+  border-radius: 5px;
+  margin-bottom: 5px;
+}
+.popup__comment:nth-child(2n+1){
+  background-color: #EEEEEE;
+}
+.popup__bottom-wrapper{
+  display: flex;
+  width: 90%;
+  align-self: flex-end;
+  justify-content: flex-start;
+  padding: 0 0 0 40px;
+  box-sizing: border-box;
+}
+.popup__date{
+  color: #9E9E9E;
+  font-size: 1.6rem;
 }
