@@ -1,8 +1,9 @@
 import {cardFunction} from './src-rasmus/cardController.js';
 import {listFunction} from './samir.js';
+import {init} from './main.js'
 listFunction();
 cardFunction();
-
+init();
 
 
 // Just test code!
