@@ -3,7 +3,7 @@ import view from "./view"
 
 export function init (){
     let main = document.querySelector("main");
-    view.addinput(main)
+    view.addinput(main,"Write bord name")
     let input = document.querySelector(".maininput")
     console.log(input);
     let onbtnclick = function(){

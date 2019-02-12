@@ -448,9 +448,10 @@
           button.innerHTML = btntxt;
           button.addEventListener('click', onClick);
       },
-      addinput: function(element){
+      addinput: function(element,placeholder){
           let input = document.createElement("input");
           input.className = "maininput";
+          input.placeholder = placeholder;
           element.appendChild(input);
       },
       clearinput: function(input){
@@ -485,7 +486,7 @@
 
   function init (){
       let main = document.querySelector("main");
-      view.addinput(main);
+      view.addinput(main,"Write bord name");
       let input = document.querySelector(".maininput");
       console.log(input);
       let onbtnclick = function(){
