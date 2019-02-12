@@ -26,15 +26,18 @@ export default {
   renderAllCards: function(cards){
     let cardWrappers = document.querySelectorAll('.list__card-wrapper');
     let listTitles = document.querySelectorAll('.list__title');
+    let main = document.querySelector('main');
     for(let wrapper of cardWrappers){
       wrapper.innerHTML = '';
     }
     for(let card of cards){
-      for(let title of listTitles){
-        if(title.innerHTML === card.listTitle){
-          let list = title.parentNode;
-          let wrapper = list.querySelector('.list__card-wrapper');
-          this.renderCard(card.id, card.cardTitle, wrapper);
+      if(card.boardId === main.dataset.boardid){
+        for(let title of listTitles){
+          if(title.innerHTML === card.listTitle){
+            let list = title.parentNode;
+            let wrapper = list.querySelector('.list__card-wrapper');
+            this.renderCard(card.id, card.cardTitle, wrapper);
+          }
         }
       }
     }

@@ -2,7 +2,7 @@ import cardModel from './cardModel.js';
 import cardView from './cardView.js'
 
 export function cardFunction(){
-
+  console.log(cardModel.getCards());
   let addListButton = document.querySelector('.add-list-button');
 
   addListButton.addEventListener('click', function(e){
@@ -30,7 +30,7 @@ export function cardFunction(){
     cardModel.addCard(cardId, listTitle, cardTitle, date);
     cardView.renderCard(cardId, cardTitle, cardWrapper);
     textArea.value = '';
-
+    console.log(cardModel.getCards());
     editDeleteEvents();
     dragDropEvents();
   }

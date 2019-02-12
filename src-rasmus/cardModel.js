@@ -21,6 +21,7 @@ export default {
     return id;
   },
   addCard: function(id, listTitle, cardTitle, date){
+    let main = document.querySelector('main'); //change
     let card = {
       id: id,
       listTitle: listTitle,
@@ -28,6 +29,7 @@ export default {
       cardDescription: '',
       date: date,
       comments: [],
+      boardId: main.dataset.boardid, //change
     }
     this.cards.push(card);
   },

@@ -1,31 +1,48 @@
+var listArray = {
+
+}
+
 export function listFunction() {
   let main = document.querySelector('main');
-  let listContainer = document.createElement('div');
-  let addListContainer = document.createElement('div');
-  let inputList = document.createElement('input');
-  let button = document.createElement('button');
+  let listContainer = null
+  let addListContainer = null;
+  let inputList = null;
+  let button = null;
   let listArray = [];
-  listContainer.classList.add('list-container');
-  addListContainer.classList.add('add-list-container');
+
+  renderAddListButton();
+  renderAllLists();
+
+  function renderAddListButton(){
+    listContainer = document.createElement('div');
+    addListContainer = document.createElement('div');
+    inputList = document.createElement('input');
+    button = document.createElement('button');
+
+    listContainer.classList.add('list-container');
+    addListContainer.classList.add('add-list-container');
+
+    main.appendChild(addListContainer);
+    main.appendChild(listContainer);
+
+    addListContainer.appendChild(inputList);
+    addListContainer.appendChild(button);
+
+    button.textContent = '+';
+    button.classList.add('add-list-button');
+    inputList.classList.add('add-text');
+    inputList.placeholder = 'Add list'
+
+    button.addEventListener('click', function(e){
+      if(inputList.value){
+        addList();
+        inputList.value = ""
+      }
+    });
+  }
 
 
-  main.appendChild(addListContainer);
-  main.appendChild(listContainer);
 
-  addListContainer.appendChild(inputList);
-  addListContainer.appendChild(button);
-
-  button.textContent = '+';
-  button.classList.add('add-list-button');
-  inputList.classList.add('add-text');
-  inputList.placeholder = 'Add list'
-
-  button.addEventListener('click', function(e){
-    if(inputList.value){
-      addList();
-      inputList.value = ""
-    }
-  });
   function addList(){
     let list = document.createElement('div');
     list.classList.add('list')
@@ -46,8 +63,35 @@ export function listFunction() {
     list.appendChild(addCardButton);
     let obj = {
       listTitle: titleSpan.innerHTML,
-      boardId: '',
+      boardId: main.dataset.boardid, // change
     }
     listArray.push(obj);
+    console.log(listArray);
+  }
+
+  function renderAllLists(){
+    console.log(listArray);
+    for(let list of listArray){
+      console.log(list);
+      if(list.boardId === main.dataset.boardid){
+        let list = document.createElement('div');
+        list.classList.add('list')
+        let titleSpan = document.createElement('span');
+        titleSpan.innerHTML = inputList.value;
+        titleSpan.classList.add('list__title');
+        listContainer.appendChild(list);
+        list.appendChild(titleSpan);
+        let listWrap = document.createElement('div');
+        listWrap.classList.add('list__card-wrapper');
+        list.appendChild(listWrap);
+        let addCardButton = document.createElement('button');
+        addCardButton.classList.add('list__add-card-btn');
+        addCardButton.textContent ='Add card'
+        let cardTextArea = document.createElement('textarea');
+        cardTextArea.classList.add('list__add-card-textarea');
+        list.appendChild(cardTextArea);
+        list.appendChild(addCardButton);
+      }
+    }
   }
 }
