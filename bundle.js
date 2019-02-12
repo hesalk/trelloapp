@@ -23,7 +23,7 @@
       return id;
     },
     addCard: function(id, listTitle, cardTitle, date){
-      let main = document.querySelector('main'); //change
+      let main = document.querySelector('main');
       let card = {
         id: id,
         listTitle: listTitle,
@@ -31,7 +31,7 @@
         cardDescription: '',
         date: date,
         comments: [],
-        boardId: main.dataset.boardid, //change
+        boardId: main.dataset.id,
       };
       this.cards.push(card);
     },
@@ -104,7 +104,7 @@
         wrapper.innerHTML = '';
       }
       for(let card of cards){
-        if(card.boardId === main.dataset.boardid){
+        if(card.boardId === main.dataset.id){
           for(let title of listTitles){
             if(title.innerHTML === card.listTitle){
               let list = title.parentNode;
@@ -379,7 +379,7 @@
       list.appendChild(addCardButton);
       let obj = {
         listTitle: titleSpan.innerHTML,
-        boardId: main.dataset.boardid, // change
+        boardId: main.dataset.id,
       };
       listArray.lists.push(obj);
       console.log(listArray.lists);
@@ -389,7 +389,7 @@
       console.log(listArray.lists);
       for(let list of listArray.lists){
 
-        if(list.boardId === main.dataset.boardid){
+        if(list.boardId === main.dataset.id){
           let listElement = document.createElement('div');
           listElement.classList.add('list');
           let titleSpan = document.createElement('span');
@@ -491,8 +491,8 @@
       console.log(input);
       let onbackclick = function(){//5
           view.clearmain(main);
-          init (listFunc, cardFunc);  
-          renderallbordsbtn();      
+          init (listFunc, cardFunc);
+          renderallbordsbtn();
   /*         console.log("lol");
           view.clearmain(main);
           view.addinput(main,"Write bord name");
@@ -500,6 +500,7 @@
           renderallbordsbtn(); */
       };
       let onbtnclick = function(){//2nd
+        if(!input.value) return;
           let id = model.generateId();
           let bordtitle = input.value;
           let onBordClick = function(){//4th

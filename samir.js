@@ -62,7 +62,7 @@ export function listFunction() {
     list.appendChild(addCardButton);
     let obj = {
       listTitle: titleSpan.innerHTML,
-      boardId: main.dataset.boardid, // change
+      boardId: main.dataset.id,
     }
     listArray.lists.push(obj);
     console.log(listArray.lists);
@@ -72,7 +72,7 @@ export function listFunction() {
     console.log(listArray.lists);
     for(let list of listArray.lists){
 
-      if(list.boardId === main.dataset.boardid){
+      if(list.boardId === main.dataset.id){
         let listElement = document.createElement('div');
         listElement.classList.add('list')
         let titleSpan = document.createElement('span');
