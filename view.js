@@ -11,6 +11,9 @@ export default {
         input.className = "maininput"
         element.appendChild(input);
     },
+    clearinput: function(input){
+        input.value = ""
+    },
     createbord: function(element,id,inputtxt){
         let div = document.createElement("div");
         let span = document.createElement("span");

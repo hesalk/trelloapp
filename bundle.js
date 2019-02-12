@@ -36,7 +36,11 @@
         },
         addinput: function(element){
             let input = document.createElement("input");
+            input.className = "maininput";
             element.appendChild(input);
+        },
+        clearinput: function(input){
+            input.value = "";
         },
         createbord: function(element,id,inputtxt){
             let div = document.createElement("div");
@@ -52,10 +56,14 @@
     function init (){
         let main = document.querySelector("main");
         view.addinput(main);
+        let input = document.querySelector(".maininput");
+        console.log(input);
         view.addbtn(main,"bord-addbutton", function(){
             let id = model.generateId();
-            view.createbord(main,id);
-            model.addbord(id);
+            let bordtitle = input.value;
+            view.createbord(main,id,bordtitle);
+            model.addbord(id,bordtitle);
+            view.clearinput(input);
         },"Creat bord");
         model.generateId();
     }
