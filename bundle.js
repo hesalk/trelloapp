@@ -484,7 +484,7 @@
       }
   };
 
-  function init (){
+  function init (listFunc, cardFunc){
       let main = document.querySelector("main");
       view.addinput(main,"Write bord name");
       let input = document.querySelector(".maininput");
@@ -495,6 +495,16 @@
           let onBordClick = function(){
               main.dataset.id = id;
               console.log("test");
+              view.clearmain(main);
+              listFunc();
+              cardFunc();
+              let backButton = document.createElement('button');
+              backButton.textContent = 'Back to Boards';
+              main.appendChild(backButton);
+              backButton.addEventListener('click', function(e){
+                view.clearmain(main);
+                // Rendera ut boards
+              });
           };
           view.createbord(main,id,bordtitle,onBordClick);
           model.addbord(id,bordtitle);
@@ -502,6 +512,7 @@
       };
       let onexistBordclick = function(e){
           main.dataset.id = e.target.dataset.id;
+
       };
       let renderallbordsbtn = function(){
           view.renderallbords(model.getbord(),main,onexistBordclick);
@@ -511,9 +522,9 @@
       model.generateId();
   }
 
-  listFunction();
-  cardFunction();
-  init();
+  // listFunction();
+  // cardFunction();
+  init(listFunction, cardFunction);
 
 
   // Just test code!

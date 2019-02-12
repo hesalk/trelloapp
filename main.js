@@ -1,9 +1,9 @@
 import {cardFunction} from './src-rasmus/cardController.js';
 import {listFunction} from './samir.js';
 import {init} from './controler.js'
-listFunction();
-cardFunction();
-init();
+// listFunction();
+// cardFunction();
+init(listFunction, cardFunction);
 
 
 // Just test code!
