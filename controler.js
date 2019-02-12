@@ -2,11 +2,6 @@ import model from "./model"
 import view from "./view"
 
 export function init (){
-<<<<<<< HEAD
-    let main = document.querySelector("main")
-    view.addbtn(main,"bord-addbutton", function(){
-        view.createbord(main,model.generateId())
-=======
     let main = document.querySelector("main");
     view.addinput(main)
     let input = document.querySelector(".maininput")
@@ -17,7 +12,6 @@ export function init (){
         view.createbord(main,id,bordtitle);
         model.addbord(id,bordtitle);
         view.clearinput(input);
->>>>>>> hesham
     },"Creat bord")
     model.generateId();
 }
