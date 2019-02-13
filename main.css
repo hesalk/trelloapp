@@ -327,3 +327,12 @@ body{
   cursor: pointer;
   color: #ffffff;
 }
+.backbtn{
+  margin-left: 10px;
+  padding: 10px 15px 10px 15px;
+  border: none;
+  background: #00838F;
+  font-size: 2rem;
+  cursor: pointer;
+  color: white;
+}

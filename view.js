@@ -24,7 +24,7 @@ export default {
         div.appendChild(span);
         span.textContent = inputtxt;
         div.className = "bord";
-        div.dataset.id = id;//Fixa data set till main element when i open it 
+        div.dataset.id = id;//Fixa data set till main element when i open it
         element.appendChild(div);
         div.addEventListener('click', onBordClick)
     },

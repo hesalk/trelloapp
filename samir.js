@@ -65,19 +65,14 @@ export function listFunction() {
       boardId: main.dataset.id,
     }
     listArray.lists.push(obj);
-    console.log(listArray.lists);
   }
 
   function renderAllLists(){
-    console.log(listArray.lists);
     for(let list of listArray.lists){
-
       if(list.boardId === main.dataset.id){
         let listElement = document.createElement('div');
         listElement.classList.add('list')
         let titleSpan = document.createElement('span');
-        console.log(list);
-        console.log(list.listTitle);
         titleSpan.innerHTML = list.listTitle;
         titleSpan.classList.add('list__title');
         listContainer.appendChild(listElement);

@@ -22,7 +22,6 @@ export function cardFunction(){
   function callCardFunc(){
     addCardButtons = document.querySelectorAll('.list__add-card-btn');
     for(let cardButton of addCardButtons){
-      console.log(cardButton);
       cardButton.addEventListener('click', addCardFunc);
     }
   }
@@ -45,7 +44,6 @@ export function cardFunction(){
     cardModel.addCard(cardId, listTitle, cardTitle, date);
     cardView.renderCard(cardId, cardTitle, cardWrapper);
     textArea.value = '';
-    console.log(cardModel.getCards());
     editDeleteEvents();
     dragDropEvents();
   }
