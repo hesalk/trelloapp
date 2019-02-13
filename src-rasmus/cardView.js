@@ -24,7 +24,6 @@ export default {
     iconWrapper.appendChild(deleteIcon);
   },
   renderAllCards: function(cards){
-    console.log(cards);
     let cardWrappers = document.querySelectorAll('.list__card-wrapper');
     let listTitles = document.querySelectorAll('.list__title');
     let main = document.querySelector('main');
@@ -44,7 +43,6 @@ export default {
     }
   },
   removeCard: function(card){
-    console.log(card);
     let list = card.parentNode;
     list.removeChild(card);
   },

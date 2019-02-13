@@ -9,7 +9,6 @@ export default {
             id: id,
         }
         this._bords.push(bord)
-        console.log(this._bords)
     },
     generateId: function(){
         let id = Math.floor(Math.random() * 1000000);
@@ -19,7 +18,6 @@ export default {
             return this.generateId();
           }
         }
-        console.log(id)
         return id;
     },
 }

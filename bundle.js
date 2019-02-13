@@ -96,7 +96,6 @@
       iconWrapper.appendChild(deleteIcon);
     },
     renderAllCards: function(cards){
-      console.log(cards);
       let cardWrappers = document.querySelectorAll('.list__card-wrapper');
       let listTitles = document.querySelectorAll('.list__title');
       let main = document.querySelector('main');
@@ -116,7 +115,6 @@
       }
     },
     removeCard: function(card){
-      console.log(card);
       let list = card.parentNode;
       list.removeChild(card);
     },
@@ -181,7 +179,6 @@
     function callCardFunc(){
       addCardButtons = document.querySelectorAll('.list__add-card-btn');
       for(let cardButton of addCardButtons){
-        console.log(cardButton);
         cardButton.addEventListener('click', addCardFunc);
       }
     }
@@ -204,7 +201,6 @@
       cardModel.addCard(cardId, listTitle, cardTitle, date);
       cardView.renderCard(cardId, cardTitle, cardWrapper);
       textArea.value = '';
-      console.log(cardModel.getCards());
       editDeleteEvents();
       dragDropEvents();
     }
@@ -382,19 +378,14 @@
         boardId: main.dataset.id,
       };
       listArray.lists.push(obj);
-      console.log(listArray.lists);
     }
 
     function renderAllLists(){
-      console.log(listArray.lists);
       for(let list of listArray.lists){
-
         if(list.boardId === main.dataset.id){
           let listElement = document.createElement('div');
           listElement.classList.add('list');
           let titleSpan = document.createElement('span');
-          console.log(list);
-          console.log(list.listTitle);
           titleSpan.innerHTML = list.listTitle;
           titleSpan.classList.add('list__title');
           listContainer.appendChild(listElement);
@@ -425,7 +416,6 @@
               id: id,
           };
           this._bords.push(bord);
-          console.log(this._bords);
       },
       generateId: function(){
           let id = Math.floor(Math.random() * 1000000);
@@ -435,7 +425,6 @@
               return this.generateId();
             }
           }
-          console.log(id);
           return id;
       },
   };
@@ -466,7 +455,7 @@
           div.appendChild(span);
           span.textContent = inputtxt;
           div.className = "bord";
-          div.dataset.id = id;//Fixa data set till main element when i open it 
+          div.dataset.id = id;//Fixa data set till main element when i open it
           element.appendChild(div);
           div.addEventListener('click', onBordClick);
       },
@@ -488,7 +477,6 @@
       let main = document.querySelector("main");
       view.addinput(main,"Write bord name");
       let input = document.querySelector(".maininput");
-      console.log(input);
       let onbackclick = function(){//5
           view.clearmain(main);
           init (listFunc, cardFunc);
@@ -506,11 +494,11 @@
           let bordtitle = input.value;
           let onBordClick = function(){//4th
               main.dataset.id = id;
-              console.log("test");
               view.clearmain(main);
               listFunc();
               cardFunc();
-              view.addbtn(main,"backbtn",onbackclick,"backtomain");
+              let container = document.querySelector('.add-list-container');
+              view.addbtn(container,"backbtn",onbackclick,"backtomain");
 
   /*             let backButton = document.createElement('button');
               backButton.textContent = 'Back to Boards';
@@ -526,7 +514,6 @@
       };
       let onexistBordclick = function(e){
           main.dataset.id = e.target.dataset.id;
-          console.log("anotherlo");
           view.clearmain(main);
               listFunc();
               cardFunc();
