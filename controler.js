@@ -11,11 +11,6 @@ export function init (listFunc, cardFunc){
         init (listFunc, cardFunc);
         main.dataset.id = ""
         renderallbordsbtn();
-/*         console.log("lol");
-        view.clearmain(main);
-        view.addinput(main,"Write bord name");
-        view.addbtn(main,"bord-addbutton",onnewbtnclick,"Creat bord")
-        renderallbordsbtn(); */
     };
     let onnewbtnclick = function(){
         console.log("newlol")
@@ -32,14 +27,6 @@ export function init (listFunc, cardFunc){
             listFunc();
             cardFunc();
             view.addbtn(main,"backbtn",onbackclick,"backtomain");
-
-/*             let backButton = document.createElement('button');
-            backButton.textContent = 'Back to Boards';
-            main.appendChild(backButton);
-            backButton.addEventListener('click', function(e){
-              view.clearmain(main);
-              // Rendera ut boards
-            }) */
         }
         view.createbord(main,id,bordtitle,onBordClick);//3rd
         model.addbord(id,bordtitle);
@@ -56,6 +43,6 @@ export function init (listFunc, cardFunc){
     let renderallbordsbtn = function(){
         view.renderallbords(model.getbord(),main,onexistBordclick)
     }
-    view.addbtn(main,"bord-addbutton",onbtnclick,"Creat bord");//the statrt
+    view.addbtn(main,"bord-addbutton",onbtnclick,"Creat bord");//start point
     model.generateId();
 }
