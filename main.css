@@ -329,10 +329,12 @@ body{
 }
 .backbtn{
   margin-left: 10px;
-  padding: 10px 15px 10px 15px;
+  padding: 5px 15px 5px 15px;
   border: none;
-  background: #00838F;
+  background: #fff;
   font-size: 2rem;
   cursor: pointer;
-  color: white;
+  color: #00838F;
+  border-radius: 20px;
+  box-sizing: border-box;
 }
