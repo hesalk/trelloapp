@@ -492,6 +492,7 @@
       let onbackclick = function(){//5
           view.clearmain(main);
           init (listFunc, cardFunc);
+          main.dataset.id = "";
           renderallbordsbtn();
   /*         console.log("lol");
           view.clearmain(main);

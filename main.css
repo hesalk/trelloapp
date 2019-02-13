@@ -300,7 +300,7 @@ body{
   font-size: 40px;
 }
 .bord > span {
-  width: 10px;
+  width: 0px;
 }
 .maininput{
   font-size: 30px;
