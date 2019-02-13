@@ -24,7 +24,7 @@ export function init (listFunc, cardFunc){
             listFunc();
             cardFunc();
             let container = document.querySelector('.add-list-container');
-            view.addbtn(container,"backbtn",onbackclick,"backtomain");
+            view.addbtn(container,"backbtn",onbackclick,"Back to boards");
 
 /*             let backButton = document.createElement('button');
             backButton.textContent = 'Back to Boards';
@@ -43,7 +43,8 @@ export function init (listFunc, cardFunc){
         view.clearmain(main);
             listFunc();
             cardFunc();
-            view.addbtn(main,"backbtn",onbackclick,"backtomain");
+            let container = document.querySelector('.add-list-container');
+            view.addbtn(container,"backbtn",onbackclick,"Back to boards");
     }
     let renderallbordsbtn = function(){
         view.renderallbords(model.getbord(),main,onexistBordclick)
