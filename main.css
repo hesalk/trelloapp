@@ -299,6 +299,7 @@ body{
 }
 .bord > span {
   width: 0px;
+  pointer-events: none;
   color: #ffffff;
 }
 .maininput{
