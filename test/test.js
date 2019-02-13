@@ -7,13 +7,20 @@ describe('CardModel', function(){
   it('should return array with card object', function(){
     let listTitle = 'Title1';
     let cardTitle = 'CardTitle1';
-    let cardComment = 'cardComment that can be pretty long.';
-    cardModel.addCard(0, listTitle, cardTitle, cardComment);
+    let cardDescription = 'cardComment that can be pretty long.';
+    let date = '13/02/2019 - 10:54';
+    let comments = ['comment number 1', 'comment number 2'];
+    let boardId = '123456';
+    cardModel.addCard(0, listTitle, cardTitle, cardDescription, date, comments);
     listTitle = 'Title2';
     cardTitle = 'CardTitle2 with extra text';
-    cardComment = 'cardComment that can be pretty long. This one is even longer that the previous one.';
-    cardModel.addCard(1, listTitle, cardTitle, cardComment);
-    assert.deepStrictEqual(cardModel.getCards(), [{id: 0, listTitle: 'Title1', cardTitle: 'CardTitle1', cardComment: 'cardComment that can be pretty long.',}, {id: 1, listTitle: 'Title2', cardTitle: 'CardTitle2 with extra text', cardComment: 'cardComment that can be pretty long. This one is even longer that the previous one.',}]);
+    cardDescription = 'cardComment that can be pretty long. This one is even longer that the previous one.';
+    date = '13/02/2020 - 10:54';
+    comments = [];
+    boardId = '123';
+    cardModel.addCard(1, listTitle, cardTitle, cardDescription, date, comments);
+    assert.deepStrictEqual(cardModel.getCards(), [{id: 0, listTitle: 'Title1', cardTitle: 'CardTitle1', cardDescription: 'cardComment that can be pretty long.', date: '13/02/2019 - 10:54', comments: ['comment number 1', 'comment number 2'], },
+    {id: 1, listTitle: 'Title2', cardTitle: 'CardTitle2 with extra text', cardDescription: 'cardComment that can be pretty long. This one is even longer that the previous one.', date: '13/02/2020 - 10:54', comments: [],}]);
   })
   it('should remove obj from array', function(){
     cardModel.addCard(0, 'listTitle0', 'cardTitle0', 'cardComment0');
