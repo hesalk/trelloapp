@@ -24,7 +24,7 @@ export function init (listFunc, cardFunc){
             listFunc();
             cardFunc();
             let container = document.querySelector('.add-list-container');
-            view.addbtn(container,"backbtn",onbackclick,"Back to Boards");
+            view.addbtn(container,"backbtn",onbackclick,"Back to boards");
 
 /*             let backButton = document.createElement('button');
             backButton.textContent = 'Back to Boards';
